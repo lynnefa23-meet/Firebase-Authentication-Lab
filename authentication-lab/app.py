@@ -48,8 +48,6 @@ def signup():
         user= {"name": request.form['name'], "email":request.form['email'], "username":request.form['username'], "bio":request.form['bio']}
         db.child("Users").child(login_session['user']['localId']).set(user)
         return redirect(url_for('add_tweet'))
-        # except: 
-        #     error = "Authentication failed"
     return render_template("signup.html")
 
 @app.route('/add_tweet', methods=['GET', 'POST'])
